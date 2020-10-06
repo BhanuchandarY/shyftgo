@@ -146,23 +146,17 @@ const styles = StyleSheet.create({
     height: 300,
   },
   image: {
-    // width: 500,
-    // height: 800,
     alignSelf:'center',
     marginLeft:10,
     justifyContent:'center'
-  },
-  
+  },  
   text: {
     fontSize: 14,
     color: '#58585C',
     textAlign: 'center',
     fontFamily:'Montserrat',
-
-    // paddingVertical: 30,
   },
   buttonCircle:{
-    // marginTop:20,
     backgroundColor:'#131d5a',
     borderRadius:30,
     height:50,
@@ -173,11 +167,6 @@ const styles = StyleSheet.create({
     justifyContent:"center",
     borderColor: '#fff'
     
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    color:'#000',
   },
   title: {
     fontSize:22,

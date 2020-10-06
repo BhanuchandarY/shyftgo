@@ -248,18 +248,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
-  googlebackground: {
-    marginLeft:15,
-    alignItems:"center",
-    justifyContent:"center",
-  },
-  fbbackground: {
-    marginLeft:15,
-    // marginRight:15,
-    alignItems:"center",
-    justifyContent:"center",
-    // flex: 2
-  },
   google:{
     marginTop:20,
     backgroundColor:'#f6f6f9',
@@ -327,18 +315,6 @@ const styles = StyleSheet.create({
   checkbox: {
     alignSelf: "center",
     marginLeft:15
-  },
-  label: {
-    margin: 8,
-  },
-  createbackground: {
-    // backgroundColor: '#131d5a',
-    borderRadius:20,
-    marginLeft:15,
-    marginRight:15,
-    alignItems:"center",
-    justifyContent:"center",
-    flex: 2
   },
   scrollView: {
     backgroundColor: '#fff',

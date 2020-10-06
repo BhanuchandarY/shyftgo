@@ -1,5 +1,9 @@
 import React, { Component }  from 'react';
 import { StyleSheet, Text, View,Image,TextInput,ScrollView,TouchableOpacity, StatusBar,ToastAndroid } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage'
+
+// import ActivityIndicators from '../components/ActivityIndicator'
+
 
 
  class LoginScreen extends Component   {
@@ -64,11 +68,22 @@ import { StyleSheet, Text, View,Image,TextInput,ScrollView,TouchableOpacity, Sta
           channel: this.state.channels
         }),
       })
+      
       .then(response => response.json())
       .then(responseData =>{
+
+        console.log("responsedataaaaaaaaa",responseData)
        
         if(responseData.success==true){
-          this.props.navigation.navigate("CreateAnAccuntScreen")
+
+          // console.log("reeeeeeeeeeeeeeeeeeeeeee",responseData.data.user.email)
+          // console.log("reeeeeeeeeeeeeeeeeeeeeee",responseData.data.user.id)
+          AsyncStorage.setItem('email',JSON.stringify(responseData.data.user.email));
+          AsyncStorage.setItem('userid',JSON.stringify(responseData.data.user.id));  
+  
+
+
+          this.props.navigation.navigate("PointToPointScreen")
           ToastAndroid.showWithGravity("Login successfull",
             ToastAndroid.SHORT,
             ToastAndroid.CENTER
@@ -130,7 +145,7 @@ import { StyleSheet, Text, View,Image,TextInput,ScrollView,TouchableOpacity, Sta
       <View style={styles.SectionStyle}>
               <TextInput
                 style={styles.inputStyle}
-                underlineColorAndroid="#e1e1e9"
+                underlineColorAndroid='transparent'
                 placeholder="" 
                 placeholderTextColor="#58585C"
                 style={styles.textInput}
@@ -142,22 +157,25 @@ import { StyleSheet, Text, View,Image,TextInput,ScrollView,TouchableOpacity, Sta
                 onChangeText={userEmail => this.setState({ userEmail })}
               />
             </View>
-            <View style={{marginLeft:45,flexDirection:'row'}}>
-            <Text style={{color:'#c0c1cb',marginTop:15}}>Password</Text>
-            <View style={{marginTop:15,flex: 1,marginRight:60}}>
-            <Text style = {{fontSize:14,color:'#17C9E6',textAlign:'right',fontFamily:'Montserrat-SemiBold'}}>Show</Text>
+            <View style={{width:325,height:1,backgroundColor:'#c0c1cb',marginLeft:45,marginRight:55}}>
             </View>
+            {/* <View style={{marginLeft:45,flexDirection:'row'}}> */}
+            <Text style={{color:'#c0c1cb',marginTop:15,marginLeft:45}}>Password</Text>
+            {/* <View style={{marginTop:15,flex: 1,marginRight:60}}>
+            <Text style = {{fontSize:14,color:'#17C9E6',textAlign:'right',fontFamily:'Montserrat-SemiBold'}}>Show</Text> */}
+            {/* </View> */}
            
-          </View>
+          {/* </View> */}
+          <View style={{flexDirection:'row'}}>
            <View style={styles.SectionStyle}>
               <TextInput
                 ref={(input) => { this.emailTextInput = input; }}
+                blurOnSubmit={false}
                 style={styles.inputStyle}
-                underlineColorAndroid="#e1e1e9"
+                underlineColorAndroid="transparent"
                 placeholder="" 
                 onChangeText={userPassword => this.setState({ userPassword })}
                 returnKeyType='done'
-                password={true}
                 autoCorrect={false}
                 placeholderTextColor="#58585C"
                 style={styles.textInput}
@@ -165,8 +183,12 @@ import { StyleSheet, Text, View,Image,TextInput,ScrollView,TouchableOpacity, Sta
                 keyboardType="default"
                 secureTextEntry={this.state.showPassword}
               />
-            
             </View>
+            <Text style = {{fontSize:14,color:'#17C9E6',fontFamily:'Montserrat-SemiBold',position:'absolute',right:0,marginRight:45}}>Show</Text>
+            </View>
+            <View style={{width:325,height:1,backgroundColor:'#c0c1cb',marginLeft:45,marginRight:55}}>
+            </View>
+
       <View style={styles.forgotpassstyle}>
       <TouchableOpacity style = {{justifyContent:"center",alignItems:"center"}} onPress = {() => this.props.navigation.navigate("ForgotPasswordScreen")}>
         <Text style={styles.label}>Forgot your password?</Text>
@@ -178,12 +200,17 @@ import { StyleSheet, Text, View,Image,TextInput,ScrollView,TouchableOpacity, Sta
       </View>
        {/* <TouchableOpacity onPress = {() => this.props.navigation.navigate("CreateAnAccuntScreen")}> */}
        <View>
-      <TouchableOpacity style={styles.login} onPress ={() => this.CheckUserDetails('CreateAnAccuntScreen')}>
+      <TouchableOpacity style={styles.login} onPress ={() => this.CheckUserDetails()}>
      
     <Text style={{color:'#fff',alignSelf:"center",justifyContent:"center",alignItems:"center",textAlign:"center",fontSize:18,fontFamily:'Montserrat-ExtraBold'}}> Login  </Text>
      
       </TouchableOpacity>
       </View>
+      <TouchableOpacity  onPress ={() => this.props.navigation.navigate("PointToPointScreen")}>
+     
+     <Text style={{marginTop:20,marginBottom:30,color:'#17C9E6',alignSelf:"center",justifyContent:"center",alignItems:"center",textAlign:"center",fontSize:18,fontFamily:'Montserrat-ExtraBold'}}> Skip  </Text>
+      
+       </TouchableOpacity>
       </View>
     </View>
     </ScrollView>
@@ -196,22 +223,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
-  googlebackground: {
-    marginLeft:15,
-    alignItems:"center",
-    justifyContent:"center",
-    flex: 2
-  },
-  fbbackground: {
-    backgroundColor: '#0079fb',
-    borderRadius:20,
-    marginLeft:15,
-    marginRight:15,
-    alignItems:"center",
-    justifyContent:"center",
-    flex: 2
-  },
-  textInput:
+   textInput:
   {
     width: '90%',
     height: 40,
@@ -258,8 +270,6 @@ const styles = StyleSheet.create({
     height: 40,
     marginLeft: 35,
     marginRight: 55,
-    // marginBottom:40
-    // margin: 10,
   },
   inputStyle: {
     flex: 1,
@@ -279,22 +289,9 @@ const styles = StyleSheet.create({
     marginTop:25,
     marginLeft:35
   },
-  checkbox: {
-    alignSelf: "center",
-    marginLeft:15
-  },
-  label: {
+   label: {
     margin: 8,
     marginLeft:15,
     color:'#58585C'
-  },
-  createbackground: {
-    // backgroundColor: '#131d5a',
-    borderRadius:20,
-    marginLeft:15,
-    marginRight:15,
-    alignItems:"center",
-    justifyContent:"center",
-    flex: 2
   },
 });

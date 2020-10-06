@@ -71,54 +71,11 @@ const styles = StyleSheet.create({
     // alignItems: 'center',
     // justifyContent: 'center',
   },
-  googlebackground: {
-    backgroundColor: '#f6f6f9',
-    borderRadius:20,
-    marginLeft:15,
-    marginRight:15,
-    alignItems:"center",
-    justifyContent:"center",
-    flex: 2
-  },
-  fbbackground: {
-    backgroundColor: '#0079fb',
-    borderRadius:20,
-    marginLeft:15,
-    marginRight:15,
-    alignItems:"center",
-    justifyContent:"center",
-    flex: 2
-  },
-  SectionStyle: {
-    flexDirection: 'row',
-    height: 40,
-    marginLeft: 15,
-    marginRight: 55,
-    // margin: 10,
-  },
-  inputStyle: {
-    flex: 1,
-    color: '#c0c1cb',
-    paddingLeft: 10,
-    paddingRight: 15,
-    borderWidth: 1,
-    borderRadius: 30,
-    borderColor: 'white',
-  },
-  // checkboxstyle: {
-  //   flex: 1,
-  //   alignItems: "center",
-  //   justifyContent: "center",
-  // },
   forgotpassstyle: {
     flexDirection: "row",
     marginTop:30,
     alignSelf:"center",
     // marginBottom: 20,
-  },
-  checkbox: {
-    alignSelf: "center",
-    marginLeft:15
   },
   SubmitButtonStyle: {
     marginTop:50,
@@ -137,14 +94,5 @@ const styles = StyleSheet.create({
     marginLeft:15,
     fontSize:17,
     color:'#58585C'
-  },
-  createbackground: {
-    // backgroundColor: '#131d5a',
-    borderRadius:20,
-    marginLeft:15,
-    marginRight:15,
-    alignItems:"center",
-    justifyContent:"center",
-    flex: 2
   },
 });

@@ -10,12 +10,20 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.12.0",
+    "@react-native-community/datetimepicker": "^3.0.2",
     "@react-native-community/masked-view": "^0.1.10",
+    "geolib": "^3.3.1",
     "react": "16.13.1",
     "react-native": "0.63.2",
     "react-native-app-intro-slider": "^4.0.4",
+    "react-native-datepicker": "^1.7.2",
+    "react-native-geocoding": "^0.4.0",
     "react-native-gesture-handler": "^1.7.0",
     "react-native-global-font": "^1.0.2",
+    "react-native-google-places-autocomplete": "^1.8.1",
+    "react-native-maps": "^0.27.1",
+    "react-native-modal-datetime-picker": "^9.0.0",
     "react-native-safe-area-context": "^3.1.4",
     "react-native-screens": "^2.10.1",
     "react-navigation": "^4.4.0",
@@ -33,5 +41,10 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "rnpm": {
+    "assets": [
+      "./assets/fonts/"
+    ]
   }
 }

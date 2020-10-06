@@ -14,6 +14,16 @@ import ForgotPasswordScreen from './src/ForgotPasswordScreen';
 import AccountSettingScreen from './src/AccountSettingScreen';
 import SavedLocationScreen from './src/SavedLocationScreen';
 import SavedBookingsScreen from './src/SavedBookingsScreen';
+import PointToPointScreen from './src/PointToPointScreen';
+import PickuplocationScreen from './src/PickuplocationScreen';
+import SomeMoreAdditionalInfoScreen from './src/SomeMoreAdditionalInfoScreen';
+import AddContactPersionScreen from './src/AddContactPersonScreen';
+import ViewSummaryScreen from './src/ViewSummayScreen';
+// import FirstScreen from './components/FirstScreen';
+// import SecondScreen from './components/SecondScreen';
+// import ThirdScreen from './components/ThirdScreen';
+
+
 
 
 
@@ -28,8 +38,27 @@ const App = createStackNavigator({
       header: null,
     }
                 
-                }, 
+    }, 
+    // FirstScreen: { screen: FirstScreen ,
+    //   navigationOptions: {
+    //     header: null,
+    //   }
+                  
+    //   }, 
 
+    //   SecondScreen: { screen: SecondScreen ,
+    //     navigationOptions: {
+    //       header: null,
+    //     }
+                    
+    //     },
+    //     ThirdScreen: { screen: ThirdScreen ,
+    //       navigationOptions: {
+    //         header: null,
+    //       }
+                      
+    //       }, 
+  
   CreateScreen: { screen: CreateScreen,
     navigationOptions: {
       header: null,
@@ -68,7 +97,39 @@ const App = createStackNavigator({
       header: null,
     }
   },
+  PointToPointScreen:{
+    screen: PointToPointScreen,
+    navigationOptions: {
+      header: null,
+    }
+  },
+  PickuplocationScreen:{
+    screen: PickuplocationScreen,
+    navigationOptions: {
+      header: null,
+    }
+  },
+  SomeMoreAdditionalInfoScreen:{
+    screen: SomeMoreAdditionalInfoScreen,
+    navigationOptions: {
+      header: null,
+    }
+  },
+  AddContactPersionScreen:{
+    screen: AddContactPersionScreen,
+    navigationOptions: {
+      header: null,
+    }
+  },
+  ViewSummaryScreen:{
+    screen: ViewSummaryScreen,
+    navigationOptions: {
+      header: null,
+    }
+  },
 
+
+  
   ForgotPasswordScreen: { screen: ForgotPasswordScreen,
     navigationOptions: {
       header: null,

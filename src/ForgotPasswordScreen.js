@@ -59,6 +59,7 @@ class ForgotPasswordScreen extends Component   {
      <Text style={{color:'#fff',alignSelf:"center",justifyContent:"center",alignItems:"center",textAlign:"center",fontSize:18,fontFamily:'Montserrat-ExtraBold'}}> Submit  </Text>
       
        </TouchableOpacity>
+      
            </View>
       );
    }
@@ -74,10 +75,7 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       height: 40,
       marginLeft: 45,
-      marginRight: 55,
-      // marginTop:30
-      // marginBottom:40
-      // margin: 10,
+      marginRight: 55,    
     },
     textInput:
     {
@@ -97,7 +95,6 @@ const styles = StyleSheet.create({
       alignSelf:"center",
       alignItems:"center",
       justifyContent: 'center',
-      // flex:1,
       borderColor: '#fff'
     },
 });
